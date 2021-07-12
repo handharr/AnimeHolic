@@ -11,7 +11,9 @@ import SwiftUI
 struct AnimeHolicApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                VideosListView()
+            }
         }
     }
 }

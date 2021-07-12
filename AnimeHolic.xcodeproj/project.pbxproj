@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		86101C422697E7B500EBB451 /* AnimeHolicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86101C412697E7B500EBB451 /* AnimeHolicApp.swift */; };
-		86101C442697E7B500EBB451 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86101C432697E7B500EBB451 /* ContentView.swift */; };
 		86101C462697E7B600EBB451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86101C452697E7B600EBB451 /* Assets.xcassets */; };
 		86101C492697E7B600EBB451 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86101C482697E7B600EBB451 /* Preview Assets.xcassets */; };
+		86101C552697EAB600EBB451 /* VideosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86101C542697EAB600EBB451 /* VideosListView.swift */; };
+		86101C592697EC1400EBB451 /* VideosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86101C582697EC1400EBB451 /* VideosViewModel.swift */; };
+		86101C5B2697EC9B00EBB451 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86101C5A2697EC9B00EBB451 /* VideoModel.swift */; };
+		86101C5F2697F0FE00EBB451 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86101C5E2697F0FE00EBB451 /* APICaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		86101C3E2697E7B500EBB451 /* AnimeHolic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeHolic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86101C412697E7B500EBB451 /* AnimeHolicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHolicApp.swift; sourceTree = "<group>"; };
-		86101C432697E7B500EBB451 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86101C452697E7B600EBB451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86101C482697E7B600EBB451 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		86101C4A2697E7B600EBB451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86101C542697EAB600EBB451 /* VideosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListView.swift; sourceTree = "<group>"; };
+		86101C582697EC1400EBB451 /* VideosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewModel.swift; sourceTree = "<group>"; };
+		86101C5A2697EC9B00EBB451 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		86101C5E2697F0FE00EBB451 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +58,11 @@
 		86101C402697E7B500EBB451 /* AnimeHolic */ = {
 			isa = PBXGroup;
 			children = (
+				86101C5C2697F0D800EBB451 /* Util */,
+				86101C522697EA7D00EBB451 /* ViewModels */,
+				86101C512697E97A00EBB451 /* Views */,
+				86101C502697E97600EBB451 /* Model */,
 				86101C412697E7B500EBB451 /* AnimeHolicApp.swift */,
-				86101C432697E7B500EBB451 /* ContentView.swift */,
 				86101C452697E7B600EBB451 /* Assets.xcassets */,
 				86101C4A2697E7B600EBB451 /* Info.plist */,
 				86101C472697E7B600EBB451 /* Preview Content */,
@@ -67,6 +76,46 @@
 				86101C482697E7B600EBB451 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86101C502697E97600EBB451 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86101C5A2697EC9B00EBB451 /* VideoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		86101C512697E97A00EBB451 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86101C542697EAB600EBB451 /* VideosListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86101C522697EA7D00EBB451 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				86101C582697EC1400EBB451 /* VideosViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		86101C5C2697F0D800EBB451 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				86101C5D2697F0F400EBB451 /* Networking */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		86101C5D2697F0F400EBB451 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				86101C5E2697F0FE00EBB451 /* APICaller.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86101C442697E7B500EBB451 /* ContentView.swift in Sources */,
+				86101C5F2697F0FE00EBB451 /* APICaller.swift in Sources */,
 				86101C422697E7B500EBB451 /* AnimeHolicApp.swift in Sources */,
+				86101C592697EC1400EBB451 /* VideosViewModel.swift in Sources */,
+				86101C5B2697EC9B00EBB451 /* VideoModel.swift in Sources */,
+				86101C552697EAB600EBB451 /* VideosListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
