@@ -11,26 +11,23 @@ struct VideosListView: View {
     
     var body: some View {
         ScrollView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
-                    ForEach(0..<5) { item in
-                        GeometryReader { proxy in
-                            
-                            let val = proxy.frame(in: .global).minX
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(isChange(proxy) ? Color.green : Color.blue)
-                                .overlay(
-                                    Text("\(val)")
-                                )
+            VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        ForEach(0..<5) { item in
+                            VideoCardPrimary()
+                                .frame(width: UIScreen.main.bounds.width * 0.9, height: 250)
                         }
-                        .frame(width: UIScreen.main.bounds.width * 0.9, height: 250)
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
                 }
-                .padding(20)
+                
+                VideoSectionPrimary(sectionTitle: "Top Picks For You")
+                VideoSectionPrimary(sectionTitle: "Top Picks For You")
             }
-
         }
+        .frame(maxHeight: .infinity)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(
             leading: leadingNavBar,
@@ -60,14 +57,7 @@ extension VideosListView {
 // MARK: FUNCTIONS
 
 extension VideosListView {
-    private func isChange(_ proxy: GeometryProxy) -> Bool {
-        let val = proxy.frame(in: .global).minX
-        
-        if val > 0 && val < 50 {
-            return true
-        }
-        return false
-    }
+
 }
 
 // MARK: PREVIEW
