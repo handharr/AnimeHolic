@@ -6,22 +6,31 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct VideoCardPrimary: View {
+    
+    let url = URL(string: "https://www.youtube.com/embed/YOn779f6lwI?enablejsapi=1&wmode=opaque&autoplay=1")!
+    let avPlayer = AVPlayer(url: URL(string: "https://www.youtube.com/watch?v=QmRJzGUTFf4")!)
+    
+    @State private var isTrailer = false
+    @State private var isPlaying = false
+    
     var body: some View {
         GeometryReader { proxy in
-            
-            let val = proxy.frame(in: .global).minX
-            
-            RoundedRectangle(cornerRadius: 10)
-                .fill(isChange(proxy) ? Color.green : Color.blue)
-                .overlay(
-                    Text("\(val)")
-                )
+            if isChange(proxy) {
+                VideoPlayer(player: avPlayer)
+                    .scaledToFill()
+                    .frame(width: proxy.size.width)
+            } else {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.blue)
+            }
         }
     }
 }
 
+// MARK: - FUNCTIONS
 extension VideoCardPrimary {
     private func isChange(_ proxy: GeometryProxy) -> Bool {
         let val = proxy.frame(in: .global).minX

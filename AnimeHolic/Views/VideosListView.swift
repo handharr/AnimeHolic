@@ -9,34 +9,25 @@ import SwiftUI
 
 struct VideosListView: View {
     
+    // MARK: BODY
+    
     var body: some View {
-        ScrollView {
-            VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
-                        ForEach(0..<5) { item in
-                            VideoCardPrimary()
-                                .frame(width: UIScreen.main.bounds.width * 0.9, height: 250)
-                        }
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 20)
-                }
-                
+        ScrollView { // START: MAIN VSCROLLV
+            VStack { // START: MAIN VSTACK
                 VideoSectionPrimary(sectionTitle: "Top Picks For You")
                 VideoSectionPrimary(sectionTitle: "Top Picks For You")
-            }
-        }
+            } // END: MAIN VSTACK
+        } // END: MAIN VSCROLLV
         .frame(maxHeight: .infinity)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(
+        .navigationBarItems( // START: NAVBARITEMS
             leading: leadingNavBar,
             trailing: trailingNavBar
-        )
+        ) // END: NAVBARITEMS
     }
 }
 
-// MARK: COMPONENTS
+// MARK: - COMPONENTS
 
 extension VideosListView {
     var leadingNavBar: some View {
@@ -46,21 +37,21 @@ extension VideosListView {
             .fontWeight(.semibold)
     }
     var trailingNavBar: some View {
-        NavigationLink(
+        NavigationLink( // START: SEARCH NAVLINK
             destination: Text("Destination"),
             label: {
                 Image(systemName: "magnifyingglass")
-            })
+            }) // END: SEARCH NAVLINK
     }
 }
 
-// MARK: FUNCTIONS
+// MARK: - FUNCTIONS
 
 extension VideosListView {
 
 }
 
-// MARK: PREVIEW
+// MARK: - PREVIEW
 
 struct VideosListView_Previews: PreviewProvider {
     static var previews: some View {

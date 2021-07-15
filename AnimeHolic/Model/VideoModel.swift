@@ -8,18 +8,23 @@
 import Foundation
 
 struct APIResponse: Codable {
-    let data: [Video]
+    let data: [VideoModel]
 }
 
-struct Video: Codable {
-    let malId: Int
-    let rank: Int
-    let title: String
-    let url: String
-    let imageUrl: String
-    let type: String
-    let episodes: Int
-    let startDate: String
-    let score: Float
+struct VideoModel: Codable, Identifiable {
+    let id: Int?
+    let rank: Int?
+    let title: String?
+    let url: String?
+    let imageUrl: String?
+    let type: String?
+    let episodes: Int?
+    let startDate: String?
+    let score: Float?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "malId"
+        case rank, title, url, imageUrl, type, episodes, startDate, score
+    }
 }
 
