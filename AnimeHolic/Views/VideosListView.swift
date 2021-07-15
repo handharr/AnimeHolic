@@ -10,12 +10,15 @@ import SwiftUI
 struct VideosListView: View {
     
     // MARK: BODY
-    
     var body: some View {
         ScrollView { // START: MAIN VSCROLLV
             VStack { // START: MAIN VSTACK
-                VideoSectionPrimary(sectionTitle: "Top Picks For You")
-                VideoSectionPrimary(sectionTitle: "Top Picks For You")
+                
+                VideoSectionPrimary(sectionTitle: "Airing", vidType: .getTopAiring)
+                VideoSectionPrimary(sectionTitle: "Upcoming", vidType: .getTopUpcoming)
+                VideoSectionPrimary(sectionTitle: "Movie", vidType: .getTopMovie)
+                VideoSectionPrimary(sectionTitle: "OVA", vidType: .getTopOva)
+                
             } // END: MAIN VSTACK
         } // END: MAIN VSCROLLV
         .frame(maxHeight: .infinity)
