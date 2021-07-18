@@ -11,20 +11,24 @@ import Combine
 class VideosViewModel: ObservableObject {
     
     // MARK: PROPERTIES
-    private let service: VideosService
+    private let service = VideosService.shared
     private var cancellable = Set<AnyCancellable>()
     var videos = [VideosModel]()
     
     @Published private(set) var state: ResultState = .loading
     
     // MARK: INIT
-    init(service: VideosService) {
-        self.service = service
+    init(withType type: VideosApi) {
+        getVideos(withType: type)
     }
     
     // MARK: FUNCTIONS
     
     /// Download, fetch, and decode Top Videos from Service
+    ///
+    /// This function will fetch the URL and subscribe to VideoService publisher
+    ///
+    /// - Parameter vidsType: VideosApi enum
     func getVideos(withType vidsType: VideosApi) {
         self.state = .loading
         
@@ -45,6 +49,8 @@ class VideosViewModel: ObservableObject {
             .store(in: &cancellable)
     }
     
+    /// Get the first five of Videos array
+    /// - Returns: an array of VideosModel
     func getFirstFive() -> [VideosModel] {
         let firstFive = videos.prefix(5)
         

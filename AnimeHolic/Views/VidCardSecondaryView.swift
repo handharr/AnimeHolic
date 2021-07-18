@@ -13,40 +13,61 @@ struct VidCardSecondaryView: View {
     let video: VideosModel
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .fill(Color.green)
-            .frame(width: 200)
-            .overlay(
-                VStack() { // START: OVERLAY CONTAINER
-                    Spacer()
-                    VStack(spacing: 5) { // START: INFO CONTAINER
-                        Text(video.title ?? "")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .lineLimit(1)
-                            .foregroundColor(.white)
-                            .padding(.horizontal)
-                        HStack { // START: RATING STAR'S CONTAINER
-                            ForEach(0..<getFullStar()) { _ in
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.yellow)
-                            }
-                            if getHalfStar() == 1 {
-                                Image(systemName: "star.leadinghalf.fill")
-                                    .foregroundColor(.yellow)
-                            }
-                            ForEach(0..<getUnfilledStar()) { _ in
-                                Image(systemName: "star")
-                                    .foregroundColor(.yellow)
-                            }
-                        } // END: RATING STAR'S CONTAINER
-                        .frame(maxWidth: .infinity)
-                    } // END: INFO CONTAINER
-                    .padding(.vertical,10)
-                    .background(Color.black.opacity(0.5))
-                } // END: OVERLAY CONTAINER
-                .cornerRadius(10)
-            )
+        ZStack {
+            if let url = video.imageUrl {
+                ImageLoaderView(
+                    urlString: url,
+                    key: "\(video.id)",
+                    title: video.title ?? ""
+                )
+            } else {
+                Rectangle()
+                    .fill(Color.gray)
+                    .overlay(
+                        ZStack {
+                            Text("No image url")
+                                .foregroundColor(.white)
+                        }
+                    )
+            }
+            VStack {
+                Spacer()
+                infoContainer
+            }
+        }
+        .cornerRadius(15)
+        .clipped()
+    }
+}
+
+// MARK: - COMPONENTS
+extension VidCardSecondaryView {
+    var infoContainer: some View {
+        VStack(spacing: 5) { // START: INFO CONTAINER
+            Text(video.title ?? "")
+                .font(.headline)
+                .fontWeight(.semibold)
+                .lineLimit(1)
+                .foregroundColor(.white)
+                .padding(.horizontal)
+            HStack { // START: RATING STAR'S CONTAINER
+                ForEach(0..<getFullStar()) { _ in
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
+                }
+                if getHalfStar() == 1 {
+                    Image(systemName: "star.leadinghalf.fill")
+                        .foregroundColor(.yellow)
+                }
+                ForEach(0..<getUnfilledStar()) { _ in
+                    Image(systemName: "star")
+                        .foregroundColor(.yellow)
+                }
+            } // END: RATING STAR'S CONTAINER
+            .frame(maxWidth: .infinity)
+        } // END: INFO CONTAINER
+        .padding(.vertical,10)
+        .background(Color.black.opacity(0.5))
     }
 }
 
@@ -93,5 +114,7 @@ extension VidCardSecondaryView {
 struct VidCardSecondaryView_Previews: PreviewProvider {
     static var previews: some View {
         VidCardSecondaryView(video: VideosModel.dummyData[0])
+            .frame(width: 200, height: 300)
+            .previewLayout(.sizeThatFits)
     }
 }

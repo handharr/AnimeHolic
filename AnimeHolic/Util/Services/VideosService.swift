@@ -8,13 +8,16 @@
 import Foundation
 import Combine
 
-struct VideosService {
+class VideosService {
+    
+    static let shared = VideosService()
+    private init() {}
     
     /// Create a request to server for Videos
     /// - Parameter endpoint: Videos API
     /// - Returns: A publisher of Just that returns a Codable Type
     func request<T: Codable>(from endpoint: VideosApi) -> AnyPublisher<T, APIError> {
-        return URLSession
+        URLSession
             .shared
             .dataTaskPublisher(for: endpoint.urlRequest)
             .receive(on: DispatchQueue.main)
