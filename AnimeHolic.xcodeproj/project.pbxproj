@@ -78,8 +78,7 @@
 			children = (
 				86101C5C2697F0D800EBB451 /* Util */,
 				86101C502697E97600EBB451 /* Model */,
-				86101C512697E97A00EBB451 /* Views */,
-				86101C522697EA7D00EBB451 /* ViewModels */,
+				86343C8626A5217800BAA714 /* Cores */,
 				86101C412697E7B500EBB451 /* AnimeHolicApp.swift */,
 				86101C452697E7B600EBB451 /* Assets.xcassets */,
 				86101C4A2697E7B600EBB451 /* Info.plist */,
@@ -107,7 +106,6 @@
 		86101C512697E97A00EBB451 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				865911F126A4679700FAC15B /* Components */,
 				86101C542697EAB600EBB451 /* VideosListView.swift */,
 				86399B45269C10B000A47312 /* VideoSectionPrimary.swift */,
 				86816A0926A0702D001E197C /* VidCardSecondaryView.swift */,
@@ -118,7 +116,6 @@
 		86101C522697EA7D00EBB451 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				865911F426A467E100FAC15B /* Components */,
 				86101C582697EC1400EBB451 /* VideosViewModel.swift */,
 			);
 			path = ViewModels;
@@ -143,6 +140,33 @@
 				865911ED26A41AD000FAC15B /* PhotoService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		86343C8626A5217800BAA714 /* Cores */ = {
+			isa = PBXGroup;
+			children = (
+				865911F426A467E100FAC15B /* Components */,
+				86343C8726A5218A00BAA714 /* Home */,
+			);
+			path = Cores;
+			sourceTree = "<group>";
+		};
+		86343C8726A5218A00BAA714 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				86101C512697E97A00EBB451 /* Views */,
+				86101C522697EA7D00EBB451 /* ViewModels */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		86343C8826A521D600BAA714 /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				865911F926A4687300FAC15B /* ImageLoaderView.swift */,
+				865911FB26A4688300FAC15B /* ImageLoaderViewModel.swift */,
+			);
+			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 		8644F8EB269FD42D0065B279 /* Endpoint */ = {
@@ -177,18 +201,10 @@
 			path = CacheManager;
 			sourceTree = "<group>";
 		};
-		865911F126A4679700FAC15B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				865911F926A4687300FAC15B /* ImageLoaderView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		865911F426A467E100FAC15B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				865911FB26A4688300FAC15B /* ImageLoaderViewModel.swift */,
+				86343C8826A521D600BAA714 /* ImageLoader */,
 			);
 			path = Components;
 			sourceTree = "<group>";

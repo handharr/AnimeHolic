@@ -25,7 +25,7 @@ struct VideoSectionPrimary: View {
     
     // MARK: BODY
     var body: some View {
-        VStack { // START: MAIN VSTACK
+        VStack(spacing: 0) { // START: MAIN VSTACK
             
             // TITLE
             titleSection
@@ -57,9 +57,7 @@ extension VideoSectionPrimary {
             NavigationLink( // START: BROWSE NAVLINK
                 destination: Text("Destination"),
                 label: {
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.accentColor)
-                        .scaledToFit()
+                    Text("See all")
                 }) // END: BROWSE NAVLINK
         } // END: TITLE HSTACK
         .padding()

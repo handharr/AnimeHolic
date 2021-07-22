@@ -27,6 +27,7 @@ class VideosViewModel: ObservableObject {
     /// Download, fetch, and decode Top Videos from Service
     ///
     /// This function will fetch the URL and subscribe to VideoService publisher
+    /// by the video category type
     ///
     /// - Parameter vidsType: VideosApi enum
     func getVideos(withType vidsType: VideosApi) {

@@ -11,6 +11,7 @@ import Combine
 class VideosService {
     
     static let shared = VideosService()
+    
     private init() {}
     
     /// Create a request to server for Videos
@@ -42,5 +43,4 @@ class VideosService {
             }
             .eraseToAnyPublisher()
     }
-    
 }
